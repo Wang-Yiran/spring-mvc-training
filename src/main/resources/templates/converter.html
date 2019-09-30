@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="text/html" http-equiv="Content-Type">
+    <title>HttpMessageConverter Demo</title>
+</head>
+<body>
+<div id="resp"></div>
+<input type="button" onclick="req();" value="请求"/>
+<script src="assets/js/jquery-1.12.4.js" type="text/javascript"></script>
+<script>
+    function req() {
+        $.ajax({
+            url:"converter",
+            data: "1-wangyiran", //数据格式不采用序列化而是"-"隔开
+            type:"POST",
+            contentType:"application/x-wisely",//自定义媒体类型
+            success: function (data) {
+                $("#resp").html(data);
+            }
+        })
+    }
+</script>
+</body>
+</html>
